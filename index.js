@@ -12,9 +12,7 @@ class LinkedList {
   }
 
   insertFirst(data) {
-    const node = new Node(data, this.head)
-
-    this.head = node
+    this.head = new Node(data, this.head)
     this.size += 1
   }
 
@@ -22,6 +20,7 @@ class LinkedList {
     const node = new Node(data)
     let current
 
+    // List is empty
     if (!this.head) {
       this.head = node
       return
@@ -47,11 +46,9 @@ class LinkedList {
     }
 
     const node = new Node(data)
-    let current
+    let current = this.head
     let previous
     let count = 0
-
-    current = this.head
 
     while (count < index) {
       previous = current // Node before index
@@ -86,16 +83,18 @@ class LinkedList {
   }
 
   removeAt(index) {
+    // Index is out of range
     if (index > 0 && index > this.size) return
 
-    let current = this.head
-    let previous
-    let count = 0
-
+    // First index
     if (index === 0) {
       this.head = current.next
       return
     }
+
+    let current = this.head
+    let previous
+    let count = 0
 
     while (count < index) {
       count += 1
