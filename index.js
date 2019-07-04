@@ -112,6 +112,12 @@ class LinkedList {
   }
 
   toString() {
+    // List is empty
+    if (!this.head) {
+      console.log("No data")
+      return
+    }
+
     let current = this.head
 
     while (current) {
@@ -124,3 +130,30 @@ class LinkedList {
     }
   }
 }
+
+const linkedList = new LinkedList()
+
+linkedList.insertFirst(3)
+linkedList.insertFirst(2)
+linkedList.insertFirst(1)
+console.log("Expecting 1, 2, 3")
+linkedList.toString() //
+
+linkedList.insertLast(4)
+console.log("Expecting 1, 2, 3, 4")
+linkedList.toString() //
+
+linkedList.insertAt(2.5, 2)
+console.log("Expecting 1, 2, 2.5, 3, 4")
+linkedList.toString() //
+
+linkedList.removeAt(2)
+console.log("Expecting 1, 2, 3, 4")
+linkedList.toString() //
+
+console.log("Expecting 4")
+linkedList.getAt(3) //
+
+linkedList.clear()
+console.log("Expecting no data")
+linkedList.toString() //
