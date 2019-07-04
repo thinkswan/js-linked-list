@@ -113,6 +113,28 @@ class LinkedList {
     return null
   }
 
+  removeAt(index) {
+    if (index > 0 && index > this.size) return
+
+    let current = this.head
+    let previous
+    let count = 0
+
+    if (index === 0) {
+      this.head = current.next
+      return
+    }
+
+    while (count < index) {
+      count += 1
+      previous = current
+      current = current.next
+    }
+
+    previous.next = current.next
+    this.size -= 1
+  }
+
   toString() {
     let current = this.head
 
