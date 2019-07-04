@@ -93,6 +93,26 @@ class LinkedList {
     this.size += 1
   }
 
+  getAt(index) {
+    let current = this.head
+    let count = 0
+
+    while (current) {
+      if (count === index) {
+        console.log("Node", {
+          data: current.data,
+          next: current.next ? current.constructor : current.next
+        })
+        return
+      }
+
+      count += 1
+      current = current.next
+    }
+
+    return null
+  }
+
   toString() {
     let current = this.head
 
