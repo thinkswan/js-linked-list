@@ -46,6 +46,24 @@ class LinkedList {
     this.size += 1
   }
 
+  insertLast(data) {
+    const node = new Node(data)
+    let current
+
+    if (!this.head) {
+      this.head = node
+      return
+    }
+
+    current = this.head
+
+    while (current.next) current = current.next
+
+    current.next = node
+
+    this.size += 1
+  }
+
   toString() {
     let current = this.head
 
