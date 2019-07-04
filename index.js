@@ -111,12 +111,14 @@ class LinkedList {
     this.size = 0
   }
 
-  toString() {
+  toString(prefix) {
     // List is empty
     if (!this.head) {
       console.log("No data")
       return
     }
+
+    if (prefix) console.log(prefix)
 
     let current = this.head
 
@@ -136,24 +138,19 @@ const linkedList = new LinkedList()
 linkedList.insertFirst(3)
 linkedList.insertFirst(2)
 linkedList.insertFirst(1)
-console.log("Expecting 1, 2, 3")
-linkedList.toString() //
+linkedList.toString("Expecting 1, 2, 3")
 
 linkedList.insertLast(4)
-console.log("Expecting 1, 2, 3, 4")
-linkedList.toString() //
+linkedList.toString("Expecting 1, 2, 3, 4")
 
 linkedList.insertAt(2.5, 2)
-console.log("Expecting 1, 2, 2.5, 3, 4")
-linkedList.toString() //
+linkedList.toString("Expecting 1, 2, 2.5, 3, 4")
 
 linkedList.removeAt(2)
-console.log("Expecting 1, 2, 3, 4")
-linkedList.toString() //
+linkedList.toString("Expecting 1, 2, 3, 4")
 
 console.log("Expecting 4")
-linkedList.getAt(3) //
+linkedList.getAt(3)
 
 linkedList.clear()
-console.log("Expecting no data")
-linkedList.toString() //
+linkedList.toString("Expecting no data")
